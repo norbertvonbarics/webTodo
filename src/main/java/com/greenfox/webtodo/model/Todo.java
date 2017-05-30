@@ -23,11 +23,11 @@ public class Todo {
   boolean urgent;
   boolean done;
 
-  public Todo(String text, boolean urgent, boolean done) {
+  public Todo(String text) {
     this.timestamp  = new Timestamp(System.currentTimeMillis());
     this.text = text;
-    this.urgent = urgent;
-    this.done = done;
+    this.urgent = false;
+    this.done = false;
   }
 
   public Todo() {
