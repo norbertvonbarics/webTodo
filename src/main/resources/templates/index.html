@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous"/>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous"/>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta http-equiv="refresh" content="60" />
+  <meta http-equiv="refresh" content="60"/>
   <link th:href="@{main.css}" rel="stylesheet" type="text/css"/>
   <title>webTodo</title>
 </head>
 <body>
 <h1>webTodo</h1>
+
 <table class="table table-striped">
   <tr th:each="entry : ${todolist}">
     <div>
-      <td th:text="${entry.timestamp}">1</td>
-      <td th:text="${entry.text}">2</td>
-      <td th:text="${entry.urgent}">3</td>
-      <td th:text="${entry.done}">4</td>
+      <td class="id" th:text="${entry.timestamp}">1</td>
+      <td class="action" th:text="${entry.text}">2</td>
+      <td class="action" th:text="${entry.urgent}">3</td>
+      <td class="action" th:text="${entry.done}">4</td>
     </div>
   </tr>
 </table>
-
 
 <form method="post" action="/addTodo">
   <input th:type="text" name="todo"/>
   <input th:type="submit" value="addTodo"/>
 </form>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
 </body>
 </html>
 
