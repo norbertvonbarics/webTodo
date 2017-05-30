@@ -16,7 +16,7 @@ public class TodoController {
   @Autowired
   TodoRepository todoRepo;
 
-  @RequestMapping(value = "/", method = RequestMethod.GET)
+  @RequestMapping(value = "/todo", method = RequestMethod.GET)
   public String todo(Model model) {
     model.addAttribute("todolist", todoRepo.findAll());
     return "index";
