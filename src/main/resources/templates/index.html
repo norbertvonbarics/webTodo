@@ -10,6 +10,17 @@
 </head>
 <body>
 <h1>webTodo</h1>
+<table class="table table-striped">
+  <tr th:each="entry : ${todolist}">
+    <div>
+      <td th:text="${entry.timestamp}">1</td>
+      <td th:text="${entry.text}">2</td>
+      <td th:text="${entry.urgent}">3</td>
+      <td th:text="${entry.done}">4</td>
+    </div>
+  </tr>
+</table>
+
 
 <form method="post" action="/addTodo">
   <input th:type="text" name="todo"/>
