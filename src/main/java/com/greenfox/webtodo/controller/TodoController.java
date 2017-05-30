@@ -45,9 +45,9 @@ public class TodoController {
   }
 
   @RequestMapping(value = "/{id}/edit/update")
-  public String finishedEdit(@PathVariable("id") Long id, @RequestParam("text") String text,
-      @RequestParam(value = "urgent", defaultValue = "unchecked") String urgent,
-      @RequestParam(value = "done", defaultValue = "unchecked") String done) {
+  public String updated(@PathVariable("id") Long id, @RequestParam("text") String text,
+      @RequestParam(value = "urgent", defaultValue = "unchecked",  required = false) String urgent,
+      @RequestParam(value = "done", defaultValue = "unchecked",  required = false) String done) {
 
     Todo todo = todoRepo.findOne(id);
     todo.setText(text);

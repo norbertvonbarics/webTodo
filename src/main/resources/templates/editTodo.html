@@ -7,7 +7,7 @@
 <body>
 <h1>Edit Todo</h1>
 <form method="post" th:action="@{/__${todo.id}__/edit/update}">
-  <div>Todo Description<input type="text" name="title" th:value="${todo.text}"/></div>
+  <div>Todo Description<input type="text" name="text" th:value="${todo.text}"/></div>
   <div> URGENT
     <input type="checkbox" name="urgent" value="checked" th:checked="${todo.isUrgent()} ? true : false"/>
   </div>
