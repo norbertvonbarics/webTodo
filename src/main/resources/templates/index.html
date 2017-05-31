@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta http-equiv="refresh" content="60" />
-  <link th:href="@{main.css}" rel="stylesheet" type="text/css"/>
+  <link th:href="@{../main.css}" rel="stylesheet" type="text/css"/>
   <title>webTodo</title>
 </head>
 <body class="container">
@@ -17,12 +17,21 @@
 </form>
 
 <table class="table table-striped">
+  <tr>
+    <th>Date</th>
+    <th>ToDo</th>
+    <th>Urgent</th>
+    <th>Done</th>
+    <th></th>
+    <th></th>
+  </tr>
+
   <tr th:each="entry : ${todolist}">
     <div>
       <td th:text="${entry.timestamp}">1</td>
       <td th:text="${entry.text}">2</td>
-      <td th:text="${entry.urgent}">3</td>
-      <td th:text="${entry.done}">4</td>
+      <td><span th:class="${entry.urgent} ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'" aria-hidden="true"></span></td>
+      <td><span  th:class="${entry.done} ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'" aria-hidden="true"></span></td>
       <td><a class="btn btn-danger" style="text-decoration: none" th:href="@{/todo/deleteTodo(delete=${entry.id})}">delete</a></td>
       <td><a class="btn btn-info" style="text-decoration: none" th:href="@{/todo/__${entry.id}__/edit}">edit</a></td>
     </div>
